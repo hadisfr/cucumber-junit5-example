@@ -20,26 +20,14 @@ public class StepDefs {
     public void zookeeperArrives() {
     }
 
-    @Then("{string} makes {string}")
+    @Then("{word} makes {string}")
     public void animalMakesSound(String animalName, String sound) {
-        System.out.println(animalName);
-        System.out.println(sound);
         Animal animal = switch (animalName) {
             case "cat" -> cat;
             case "dog" -> dog;
             default -> throw new IllegalArgumentException();
         };
         assertEquals(sound, animal.makeSound());
-    }
-
-    @Then("dog makes Haap!")
-    public void dogMakesSound() {
-        assertEquals("Haap!", dog.makeSound());
-    }
-
-    @Then("cat makes Mew!")
-    public void catMakesSound() {
-        assertEquals("Mew!", cat.makeSound());
     }
 }
 
